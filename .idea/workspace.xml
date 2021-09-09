@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0c41aed0-046e-4f76-a155-c8eab538cd63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +54,8 @@
       <command value="mvn clean heroku:deploy-war" />
       <command value="mvn install" />
       <command value="mvn install " />
-      <command value="mvn package" />
       <command value="mvn clean" />
+      <command value="mvn package" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.TransactionControllerTest (2)">
@@ -142,6 +143,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FinancialReconciliationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="com.demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.demo.FinancialReconciliationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TransactionControllerTest (2)" />
@@ -166,7 +174,8 @@
       <workItem from="1631187758229" duration="14000" />
       <workItem from="1631204379003" duration="2020000" />
       <workItem from="1631206597914" duration="835000" />
-      <workItem from="1631207687967" duration="4521000" />
+      <workItem from="1631207687967" duration="5008000" />
+      <workItem from="1631219944149" duration="163000" />
     </task>
     <servers />
   </component>
