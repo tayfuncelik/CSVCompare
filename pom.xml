@@ -150,7 +150,7 @@
                 <version>2.2.0</version>
                 <configuration>
                     <version>1</version>
-                    <projectId>avian-foundry-325517</projectId>
+                    <projectId>glass-cycle-325516</projectId>
                 </configuration>
             </plugin>
             <plugin>
