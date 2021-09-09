@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0c41aed0-046e-4f76-a155-c8eab538cd63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +51,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
+      <command value="mvn install" />
+      <command value="mvn clean heroku:deploy" />
+      <command value="mvn clean heroku:deploy-war" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.TransactionControllerTest (2)">
@@ -157,7 +160,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631112723540</updated>
       <workItem from="1631112726206" duration="93000" />
-      <workItem from="1631134293228" duration="11060000" />
+      <workItem from="1631134293228" duration="12177000" />
     </task>
     <servers />
   </component>
