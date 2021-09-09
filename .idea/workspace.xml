@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c41aed0-046e-4f76-a155-c8eab538cd63" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlify.tolm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +54,9 @@
       <command value="mvn clean heroku:deploy" />
       <command value="mvn clean heroku:deploy-war" />
       <command value="mvn install" />
+      <command value="mvn install " />
       <command value="mvn package" />
       <command value="mvn clean" />
-      <command value="mvn install " />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.TransactionControllerTest (2)">
@@ -163,7 +164,11 @@
       <updated>1631112723540</updated>
       <workItem from="1631112726206" duration="93000" />
       <workItem from="1631134293228" duration="14004000" />
-      <workItem from="1631153889256" duration="961000" />
+      <workItem from="1631153889256" duration="1461000" />
+      <workItem from="1631187758229" duration="14000" />
+      <workItem from="1631204379003" duration="2020000" />
+      <workItem from="1631206597914" duration="835000" />
+      <workItem from="1631207687967" duration="928000" />
     </task>
     <servers />
   </component>
