@@ -1,0 +1,4 @@
+[build]
+  base = "ui/"
+  publish = "target/*.war"
+  command = "./mvnw spring-boot:run"
