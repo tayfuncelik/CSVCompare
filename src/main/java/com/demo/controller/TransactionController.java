@@ -1,7 +1,6 @@
 package com.demo.controller;
 
 import com.demo.constants.ErrorCodes;
-import com.demo.entity.Model;
 import com.demo.exception.InvalidCSVException;
 import com.demo.response.TransactionResponse;
 import com.demo.service.TransactionService;
@@ -30,18 +29,16 @@ public class TransactionController {
 
     @PostMapping("/compare")
     public ModelAndView compareCSVTransactionRecords(@RequestPart("firstCSV") MultipartFile firstCSV,
-                                                     @RequestPart("secondCSV") MultipartFile secondCSV, Model model) throws Exception {
+                                                     @RequestPart("secondCSV") MultipartFile secondCSV) throws Exception {
         if (!isCSVFormat.test(firstCSV) || !isCSVFormat.test(secondCSV))
             throw new InvalidCSVException(ErrorCodes.INVALID_CSV);
         log.info("compareCSVTransactionRecords");
 
-        ModelAndView modelAndView = new ModelAndView();
         TransactionResponse response = transactionService.compareCVSRecords(firstCSV, secondCSV);
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("firstCSV", null);
         modelAndView.addObject("response", response);
-
         modelAndView.setViewName("compare");
         return modelAndView;
-
     }
 }

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(TransactionController.class)
@@ -53,19 +53,20 @@ class TransactionControllerTest {
 
         when(transactionService.compareCVSRecords(mockMultipartFile, mockMultipartFile2)).thenReturn(response);
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/compare")
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare")
                         .file(mockMultipartFile)
                         .file(mockMultipartFile2)
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
-//                .content(content))
                 .andExpect(status().is(200))
                 .andDo(print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2").value(response.getMatchedResponseFile2()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.matchingRecords").value(response.getMatchedResponseFile1().getMatchingRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.totalRecords").value(response.getMatchedResponseFile1().getTotalRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedRecords").value(response.getMatchedResponseFile1().getUnMatchedRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedReportResponse").value(response.getMatchedResponseFile1().getUnMatchedReportResponse()));
+                .andExpect(model().attributeExists("response"))
+                .andExpect(view().name("compare"));
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2").value(response.getMatchedResponseFile2()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.matchingRecords").value(response.getMatchedResponseFile1().getMatchingRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.totalRecords").value(response.getMatchedResponseFile1().getTotalRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedRecords").value(response.getMatchedResponseFile1().getUnMatchedRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedReportResponse").value(response.getMatchedResponseFile1().getUnMatchedReportResponse()));
     }
 
     @Test
@@ -92,7 +93,7 @@ class TransactionControllerTest {
 
         when(transactionService.compareCVSRecords(mockMultipartFile, mockMultipartFile2)).thenReturn(response);
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/compare")
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare")
                         .file(mockMultipartFile)
                         .file(mockMultipartFile2)
                         .accept(MediaType.APPLICATION_JSON)
@@ -100,15 +101,17 @@ class TransactionControllerTest {
 //                .content(content))
                 .andExpect(status().is(200))
                 .andDo(print())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.matchingRecords").value(response.getMatchedResponseFile1().getMatchingRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.totalRecords").value(response.getMatchedResponseFile1().getTotalRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedRecords").value(response.getMatchedResponseFile1().getUnMatchedRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedReportResponse").value(response.getMatchedResponseFile1().getUnMatchedReportResponse()))
-
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.matchingRecords").value(response.getMatchedResponseFile2().getMatchingRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.totalRecords").value(response.getMatchedResponseFile2().getTotalRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.unMatchedRecords").value(response.getMatchedResponseFile2().getUnMatchedRecords()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.unMatchedReportResponse").value(response.getMatchedResponseFile2().getUnMatchedReportResponse()));
+                .andExpect(model().attributeExists("response"))
+                .andExpect(view().name("compare"));
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.matchingRecords").value(response.getMatchedResponseFile1().getMatchingRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.totalRecords").value(response.getMatchedResponseFile1().getTotalRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedRecords").value(response.getMatchedResponseFile1().getUnMatchedRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile1.unMatchedReportResponse").value(response.getMatchedResponseFile1().getUnMatchedReportResponse()))
+//
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.matchingRecords").value(response.getMatchedResponseFile2().getMatchingRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.totalRecords").value(response.getMatchedResponseFile2().getTotalRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.unMatchedRecords").value(response.getMatchedResponseFile2().getUnMatchedRecords()))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.matchedResponseFile2.unMatchedReportResponse").value(response.getMatchedResponseFile2().getUnMatchedReportResponse()));
     }
 
     private MockMultipartFile prepareFirst() throws IOException {
@@ -134,7 +137,7 @@ class TransactionControllerTest {
 
         when(transactionService.compareCVSRecords(mockMultipartFile, mockMultipartFile2)).thenThrow(InvalidCSVException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/compare")
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare")
                         .file(mockMultipartFile)
                         .file(mockMultipartFile2)
                         .accept(MediaType.APPLICATION_JSON)
@@ -151,7 +154,7 @@ class TransactionControllerTest {
 
         when(transactionService.compareCVSRecords(mockMultipartFile, mockMultipartFile2)).thenThrow(IOException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/compare")
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare")
                         .file(mockMultipartFile)
                         .file(mockMultipartFile2)
                         .accept(MediaType.APPLICATION_JSON)
@@ -168,7 +171,7 @@ class TransactionControllerTest {
 
         Mockito.when(transactionService.compareCVSRecords(mockMultipartFile, mockMultipartFile2)).thenThrow(NullPointerException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/compare")
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare")
                         .file(mockMultipartFile)
                         .file(mockMultipartFile2)
                         .accept(MediaType.APPLICATION_JSON)
