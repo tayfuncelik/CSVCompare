@@ -47,6 +47,8 @@ public class TransactionServiceImpl implements TransactionService {
         TransactionResponse response = new TransactionResponse();
         response.setMatchedResponseFile1(prepareMatchedResponse(records1, matchedItems));
         response.setMatchedResponseFile2(prepareMatchedResponse(records2, matchedItems));
+        response.getMatchedResponseFile1().setFileName(first.getOriginalFilename());
+        response.getMatchedResponseFile2().setFileName(second.getOriginalFilename());
         return response;
     }
 

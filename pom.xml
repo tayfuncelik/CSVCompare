@@ -118,5 +118,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Start Thymeleaf we can use index.html -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--  Thymeleaf-->
+
     </dependencies>
 </project>

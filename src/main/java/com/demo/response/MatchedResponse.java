@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MatchedResponse {
+    private String fileName;
     private Integer totalRecords;
     private Integer matchingRecords;
     private Integer unMatchedRecords;
