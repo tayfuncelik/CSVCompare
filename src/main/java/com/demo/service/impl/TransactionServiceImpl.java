@@ -27,7 +27,6 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public TransactionResponse compareCVSRecords(MultipartFile first, MultipartFile second) throws IOException {
-        log.info("CSV files in process");
         List<CSVRecord> csvParsedRecords = readCSVFiles(first);
         List<CSVRecord> csvParsedRecords2 = readCSVFiles(second);
 
@@ -81,7 +80,6 @@ public class TransactionServiceImpl implements TransactionService {
             CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT);
             return csvParser.getRecords();
         } catch (IOException ioEx) {
-            log.error("IO Exception occurred");
             throw new IOException();
         }
     }
