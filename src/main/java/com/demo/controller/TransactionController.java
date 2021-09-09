@@ -4,7 +4,6 @@ import com.demo.constants.ErrorCodes;
 import com.demo.exception.InvalidCSVException;
 import com.demo.response.TransactionResponse;
 import com.demo.service.TransactionService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,6 @@ import static com.demo.predicates.TransactionPredicates.isCSVFormat;
 /**
  * Financial reconciliation API
  */
-@Slf4j
 @RequestMapping("")
 @RestController
 public class TransactionController {
@@ -32,8 +30,6 @@ public class TransactionController {
                                                      @RequestPart("secondCSV") MultipartFile secondCSV) throws Exception {
         if (!isCSVFormat.test(firstCSV) || !isCSVFormat.test(secondCSV))
             throw new InvalidCSVException(ErrorCodes.INVALID_CSV);
-        log.info("compareCSVTransactionRecords");
-
         TransactionResponse response = transactionService.compareCVSRecords(firstCSV, secondCSV);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("firstCSV", null);

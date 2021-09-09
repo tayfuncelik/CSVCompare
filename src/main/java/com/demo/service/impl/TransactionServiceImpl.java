@@ -5,7 +5,6 @@ import com.demo.response.MatchedResponse;
 import com.demo.response.TransactionResponse;
 import com.demo.response.UnMatchedReportResponse;
 import com.demo.service.TransactionService;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -23,7 +22,6 @@ import java.util.stream.Collectors;
 
 import static com.demo.functions.StatisticsFunctions.*;
 
-@Slf4j
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
